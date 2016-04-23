@@ -1,5 +1,5 @@
-@import url("https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,600,700,400italic");
-@import url("https://www.google.com/fonts#UsePlace:use/Collection:Six+Capss");
+@import url("https://www.google.com../fonts#UsePlace:use/Collection:Open+Sans:400,300,600,700,400italic");
+@import url("https://www.google.com../fonts#UsePlace:use/Collection:Six+Capss");
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2172,9 +2172,9 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Mono Social Icons Font';
-  src: url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.eot");
-  src: url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.eot?#iefix") format("embedded-opentype"), url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.woff") format("woff"), url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.ttf") format("truetype"), url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont") format("svg");
-  src: url("http://rajewska.github.io/zuzanna-rajewska/fonts/MonoSocialIconsFont-1.10.ttf") format("truetype");
+  src: url("../fonts/MonoSocialIconsFont-1.10.eot");
+  src: url("../fonts/MonoSocialIconsFont-1.10.eot?#iefix") format("embedded-opentype"), url("../fonts/MonoSocialIconsFont-1.10.woff") format("woff"), url("../fonts/MonoSocialIconsFont-1.10.ttf") format("truetype"), url("../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont") format("svg");
+  src: url("../fonts/MonoSocialIconsFont-1.10.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
