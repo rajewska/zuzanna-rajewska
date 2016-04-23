@@ -63,7 +63,14 @@ gulp.task('html', function(){
 
 // Process styles
 gulp.task('styles', function(){
-	var config = {};
+	// SASS configuration parameters
+	var config = {
+		// Include paths to bower components
+		includePaths: [
+			'bower_components/sass-mq',
+			'bower_components/bootstrap-sass/assets/stylesheets'
+		]
+	};
 
 	if (env === 'prod') {
 		config.outputStyle = 'compressed';

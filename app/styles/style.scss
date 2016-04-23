@@ -1,6 +1,6 @@
 // Import fonts
 @import url("https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,600,700,400italic");
-@import url("https://www.google.com/fonts#UsePlace:use/Collection:Six+Capss");
+@import url(https://fonts.googleapis.com/css?family=Six+Caps);
 
 // Import Project Variables
 @import "project-variables";
@@ -10,7 +10,7 @@
 @import "bootstrap";
 
 // SASS-mq (media queries)
-@import "../../bower_components/sass-mq/_mq.scss";
+@import "mq";
 
 // Import SMACSS parts
 @import "base";
