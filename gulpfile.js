@@ -67,8 +67,7 @@ gulp.task('styles', function(){
 	var config = {
 		// Include paths to bower components
 		includePaths: [
-			'bower_components/sass-mq',
-			'bower_components/bootstrap-sass/assets/stylesheets'
+			'bower_components/sass-mq'
 		]
 	};
 
