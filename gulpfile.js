@@ -17,8 +17,8 @@ var gulp 		 = require('gulp'),				// Gulp core
 	imagemin	 = require('gulp-imagemin'), 	// Image minify
 	notify		 = require('gulp-notify'),		// For pretty notifications
 	browserSync	 = require('browser-sync').create(),
-	merge		 = require('merge-stream');		// merge() command for tasks with multiple sources
-
+	merge		 = require('merge-stream'),		// merge() command for tasks with multiple sources
+	cmq		 	 = require('gulp-group-css-media-queries'); // Combines media queries
 //
 // V A R I A B L E S
 //
@@ -62,11 +62,12 @@ gulp.task('html', function(){
 });
 
 // Process styles
-gulp.task('styles', function(){
+gulp.task('styles', ['cmq'], function(){
 	// SASS configuration parameters
 	var config = {
 		// Include paths to bower components
 		includePaths: [
+			'bower_components/bootstrap-sass/assets/stylesheets',
 			'bower_components/sass-mq'
 		]
 	};
@@ -85,6 +86,14 @@ gulp.task('styles', function(){
 		.pipe(gulp.dest(outputDir + '/styles'))
 		.pipe(browserSync.stream())
 		.pipe(notify({ message: 'Styles task complete' }));
+});
+
+// Combine Media Queries
+gulp.task('cmq', function () {
+	return gulp.src(outputDir + "/styles/**/*.css")
+		.pipe(cmq())
+		.pipe(gulp.dest(outputDir + "/styles"))
+		.pipe(notify({ message: 'Media Queries Combined' }));
 });
 
 // Copy fonts
@@ -140,7 +149,7 @@ gulp.task('serve', ['build'], function(done) {
 	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
-	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
+	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles','cmq']);
 	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
 });
 
