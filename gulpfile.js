@@ -81,6 +81,15 @@ gulp.task('styles', function(){
 		.pipe(notify({ message: 'Styles task complete' }));
 });
 
+// Copy fonts
+gulp.task('fonts', function(){
+	return gulp.src([
+			sourceDir + '/fonts/MonoSocialIconsFont-1.10.*' // Mono Social Icons
+		])
+		.pipe(gulp.dest(outputDir + '/fonts'))
+		.pipe(notify({ message: 'Fonts task complete' }));
+});
+
 // Process scripts
 gulp.task('scripts', function() {
 	// Minify and copy all JavaScript (except vendor scripts)
@@ -100,9 +109,9 @@ gulp.task('scripts', function() {
 
 // Compress and minify images to reduce their file size
 gulp.task('images', function() {
-	return gulp.src(sourceDir + '/images/**/*')
+	return gulp.src(sourceDir + '/**/*.{jpg,png,svg,ico}')
 		.pipe(imagemin())
-		.pipe(gulp.dest(outputDir + '/images'))
+		.pipe(gulp.dest(outputDir))
 		.pipe(notify({ message: 'Images task complete' }));
 });
 
@@ -111,6 +120,7 @@ gulp.task('watch', function() {
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.pug', ['html']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
+	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}');
 });
 
@@ -121,16 +131,16 @@ gulp.task('serve', ['build'], function(done) {
 		port: 9000,
 		server: outputDir
 	},done);
-
+	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
 	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
-	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
+	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
 });
 
 // Build
 gulp.task('build', ['clean'], function() {
-	return gulp.start(['html', 'scripts', 'images', 'styles']);
+	return gulp.start(['html', 'scripts', 'images', 'styles', 'fonts']);
 });
 
 // Default task
