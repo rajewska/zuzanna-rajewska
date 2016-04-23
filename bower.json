@@ -1,0 +1,22 @@
+{
+  "name": "zuzanna-onepager",
+  "authors": [
+    "Nando Rossi <talk@nan.do>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "sass-mq": "^3.2.9"
+  }
+}
