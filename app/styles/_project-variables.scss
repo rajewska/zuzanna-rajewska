@@ -5,6 +5,21 @@ $font-family-sans-serif:		"Open Sans", Helvetica, Arial, sans-serif;
 $headings-font-family:			"Six Caps", Helvetica, Arial, sans-serif;
 $body-bg:						#777;
 
+//** Global textual link color.
+$link-color:            #333;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      #555;
+//** Link hover decoration.
+$link-hover-decoration: none !default;
+
+//== Jumbotron
+//
+//##
+
+$jumbotron-padding:              30px !default;
+$jumbotron-color:                #333;
+// $jumbotron-bg:                   #000;
+$jumbotron-heading-color:        #333;
 
 //
 // SASS-mq Overrides
@@ -38,4 +53,4 @@ $mq-static-breakpoint: desktop;
 // If you want to display the currently active breakpoint in the top
 // right corner of your site during development, add the breakpoints
 // to this list, ordered by width, e.g. (mobile, tablet, desktop).
-$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
+// $mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
