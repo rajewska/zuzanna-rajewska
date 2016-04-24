@@ -132,11 +132,11 @@ gulp.task('images', function() {
 
 // Gulp Watch
 gulp.task('watch', function() {
+	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
-	gulp.watch(sourceDir + '/**/*.pug', ['html']);
-	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles']);
+	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
+	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles','cmq']);
 	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
-	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}');
 });
 
 // Development Server
@@ -146,11 +146,6 @@ gulp.task('serve', ['build'], function(done) {
 		port: 9000,
 		server: outputDir
 	},done);
-	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
-	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
-	gulp.watch(sourceDir + '/**/*.{jpg,png,svg,ico}', ['images']);
-	gulp.watch(sourceDir + '/styles/**/*.{scss,sass}', ['styles','cmq']);
-	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
 });
 
 // Build
@@ -159,4 +154,4 @@ gulp.task('build', ['clean'], function() {
 });
 
 // Default task
-gulp.task('default', ['serve']);
+gulp.task('default', ['serve', 'watch']);
