@@ -139,6 +139,18 @@ gulp.task('watch', function() {
 	gulp.watch(sourceDir + '/fonts/**/*', ['fonts']);
 });
 
+// Gulp restart when gulpfile.js or config.js files are changed
+var spawn = require('child_process').spawn;
+gulp.task('watch:gulp', function() {
+    var p;
+    gulp.watch(['gulpfile.js', 'config.js'], function () {
+        if(p) {
+            p.kill();
+        }
+        p = spawn('gulp', ['build'], {stdio: 'inherit'});
+    });
+});
+
 // Development Server
 gulp.task('serve', ['build'], function(done) {
 	browserSync.init({
@@ -154,4 +166,4 @@ gulp.task('build', ['clean'], function() {
 });
 
 // Default task
-gulp.task('default', ['serve', 'watch']);
+gulp.task('default', ['serve', 'watch', 'watch:gulp']);
