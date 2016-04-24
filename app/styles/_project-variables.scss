@@ -1,9 +1,18 @@
 //
-// Project Colors & Measures
+// Bootstrap
 //
-$dark-gray:		#ccc;
-$gray:			#777;
-$light-gray:	#ddd;
+$font-size-base:				18px;
+$font-family-sans-serif:		"Open Sans", Helvetica, Arial, sans-serif;
+$headings-font-family:			"Six Caps", Helvetica, Arial, sans-serif;
+$body-bg:						#777;
+$text-color:					#333;
+
+//** Global textual link color.
+$link-color:            #333;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      #555;
+//** Link hover decoration.
+$link-hover-decoration: none !default;
 
 //
 // SASS-mq Overrides

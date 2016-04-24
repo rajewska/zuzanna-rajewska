@@ -16,7 +16,7 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap-sass": "~3.3.6",
+    "bootstrap-sass": "^3.3.6",
     "sass-mq": "^3.2.9"
   }
 }
