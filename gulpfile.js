@@ -1,10 +1,8 @@
-// Error Handling with Plumber
-var onError = function(err) {
-    console.log(err);
-}
+'use strict';
 
 //
 // G U L P  L O A D E R
+// ====================
 //
 var gulp 		 = require('gulp'),				// Gulp core
 	gutil 		 = require('gulp-util'),		// Gulp utilities
@@ -19,10 +17,14 @@ var gulp 		 = require('gulp'),				// Gulp core
 	browserSync	 = require('browser-sync').create(),
 	merge		 = require('merge-stream'),		// merge() command for tasks with multiple sources
 	cmq		 	 = require('gulp-group-css-media-queries'); // Combines media queries
+
 //
 // V A R I A B L E S
+// =================
 //
 
+// Environment Vars
+// ================
 // Sets environment variables through gulp-util
 // To invoke: $ gulp --env=prod
 var env = gutil.env.env;
@@ -31,13 +33,13 @@ var outputDir = '.tmp';
 
 if (env === 'prod') {
 	outputDir = 'dist';
-	console.log("hello");
 }
 if (env === 'dev') {
 }
 
 //
 // G U L P  T A S K S
+// ==================
 //
 
 // Clean output dir first
@@ -130,7 +132,11 @@ gulp.task('images', function() {
 		.pipe(notify({ message: 'Images task complete' }));
 });
 
-// Gulp Watch
+//
+// Watcher
+// =======
+//
+
 gulp.task('watch', function() {
 	gulp.watch(sourceDir + '/**/*.pug', ['html']).on('change', browserSync.reload);
 	gulp.watch(sourceDir + '/scripts/**/*.js', ['scripts']);
