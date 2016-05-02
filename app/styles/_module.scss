@@ -1,30 +1,83 @@
-// monosocialicon
-@font-face {
-    font-family: 'Mono Social Icons Font';
-    src: url('../fonts/MonoSocialIconsFont-1.10.eot');
-    src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
-         url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-         url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-    src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+.pane {
+	margin-bottom: 0;
+	padding-top: $line-height-computed*3;
+	padding-bottom: $line-height-computed*3;
 
-a.symbol:before {
-    font-family: 'Mono Social Icons Font';
-    -webkit-text-rendering: optimizeLegibility;
-    -moz-text-rendering: optimizeLegibility;
-    -ms-text-rendering: optimizeLegibility;
-    -o-text-rendering: optimizeLegibility;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -ms-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-}
+	> header {
+		clear: both;
+		text-align: center;
 
-a.symbol:before {
-    content: attr(title);
+		@include mq($from: tablet) {
+			margin-bottom: $line-height-computed*4;
+		}
+
+		h2 {
+			display: inline-block;
+			clear: both;
+			text-transform: uppercase;
+
+			&::after {
+			  content: "";
+			  display: block;
+			  position: relative;
+			  right: 50%;
+			  top: 0.25em;
+			  border-bottom: 3px solid #333;
+			}
+		}
+	}
+
+	/* Predefined pane heights */
+	&.huge {
+		min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 94vh;
+
+		@media screen and (min-height: 900px) {
+			min-height: 768px;
+		}
+	}
+
+	&.tall {
+		min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 86vh;
+
+		@media screen and (min-height: 900px) {
+			min-height: 640px;
+		}
+	}
+
+	&.medium {
+		min-height: 65%;
+		min-height: 65vh;
+
+		@media screen and (min-height: 900px) {
+			min-height: 480px;
+		}
+	}
+
+	&.short {
+		min-height: 40%;	/* Fallback for browsers do NOT support vh unit */
+		min-height: 40vh;
+
+		@media screen and (min-height: 900px) {
+			min-height: 320px;
+		}		
+	}
+
+
+	&.top {
+		@include pane-huge;
+		display: flex;
+		padding-top: $navbar-height*1.4;
+		text-align: center;
+		align-items: center;
+	}
+
+	&.lightest {
+		background: #fff;
+	}
+
+	&.light {
+		background: $gray-lighter;
+	}
 }

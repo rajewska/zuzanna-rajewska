@@ -1,0 +1,15 @@
+nav(role="navigation").navbar.navbar-default.navbar-fixed-top
+	.container-fluid
+		header.navbar-header
+			a(href="").navbar-brand
+				img(src="/assets/images/nav-logo.svg")
+
+			button(type="button" data-toggle="collapse" data-target="#nav_top_items" aria-expanded="false").navbar-toggle.collapsed
+				span.sr-only Toggle navigation
+				span(aria-hidden="true").glyphicon.glyphicon-menu-hamburger
+
+		#nav_top_items.collapse.navbar-collapse
+			ul.nav.navbar-nav
+				li: a(href="") Design
+				li: a(href="") Music
+				li: a(href="") Contact

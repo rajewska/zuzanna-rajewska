@@ -1,16 +1,19 @@
-doctype html
-html
-	head
-		title zuzanna rajewska
-		link(rel="stylesheet", href="/styles/style.css")
-		meta(name="viewport" content="width=device-width initial-scale=1.0")
-	body
-		.one-pager
-			.container
-				header
-					img(src="/assets/images/logo-blackcircle.svg").logo
-					h1 zuzanna rajewska
+extends ./_layouts/default.pug
 
-				ul
-					li: a(href="https://www.behance.net/rajewska/", title='circlebehance').symbol 
-					li: a(href="mailto:zrajewska@gmail.com", title='circleemail').symbol 
+block title
+	title zuzanna rajewska
+
+block content
+	section#home_header.pane.top.light.tall
+		.container
+			.row
+				img(src="assets/images/logo-blackcircle.svg").bigLogo
+				p.intro Hello, vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis nulla iaculis vitae.
+
+	section#work.pane.lightest.huge
+		header
+			h2 work
+
+	section#contact.pane.light.tall
+		header
+			h2 contact me

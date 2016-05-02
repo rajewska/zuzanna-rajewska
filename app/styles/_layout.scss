@@ -1,46 +1,91 @@
-.one-pager {
-	display: flex;
-	box-sizing: border-box;
-	align-items: center;
-	background: $gray-lighter;
-	min-height: 100%;
-	min-height: 100vh;
-	text-align: center;
-	border: 1em solid #fff;
-
-	header {
-		margin: 1em auto;
+// Top Navigation
+.navbar {
+	.navbar-brand {
+		position: absolute;
+		left: 1em;
+		top: 10px;
+		width: 50px;
+		// background: #f00;        
+		margin-left: 0px;
+		padding: 10px;
 
 		img {
-			@include img-responsive();
+			@include img-responsive;
 		}
 	}
 
-	.logo {
-		width: 10em;
-		margin: 0 auto;
-
-		@include mq($from: tablet) {
-			width: 20em;
-		}
-	}
-
-	ul {
-		@include list-unstyled();
-		margin-top: 1rem;
-	}
-
-	li {
+	.navbar-nav	{
 		display: inline-block;
+		float: none;
+		vertical-align: top;
+		text-transform: uppercase;
+		font-weight: 100;
 
-		&:not(:last-child) {
-			margin-right: 1em;
+		> li {
+			padding-right: 3em;
+			padding-left: 3em;
 		}
 	}
 
-	.symbol {
-		&:before {
-			font-size: 3em;
-		}
+	.navbar-collapse {
+		text-align: center;
 	}
 }
+
+//
+// Home
+//
+
+// Header
+#home_header {
+	.bigLogo {
+		@include make-xs-column(10);
+ 		@include make-xs-column-offset(1);
+ 		@include make-sm-column(4);
+		@include make-sm-column-offset(4);
+	}
+
+	.intro {
+		clear: both;
+		@include make-sm-column(6);
+		@include make-sm-column-offset(3);
+		padding-top: $line-height-computed*2;
+
+	}
+}
+
+// 
+// Footer
+//
+#nav_footer {
+	background: $gray-lighter;
+	text-align: center;
+	padding-bottom: 1em;
+
+	> p {
+		margin-bottom: 0;
+	}
+}
+
+// 
+// Social
+// 
+// 	ul {
+// 		@include list-unstyled();
+// 		margin-top: 1rem;
+// 	}
+
+// 	li {
+// 		display: inline-block;
+
+// 		&:not(:last-child) {
+// 			margin-right: 1em;
+// 		}
+// 	}
+
+// 	.symbol {
+// 		&:before {
+// 			font-size: 3em;
+// 		}
+// 	}
+// }

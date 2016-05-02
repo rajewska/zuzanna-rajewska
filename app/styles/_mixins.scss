@@ -1,0 +1,36 @@
+// Predefined pane heights
+@mixin pane-huge() {
+	min-height: 94%;	/* Fallback for browsers do NOT support vh unit */
+	min-height: 94vh;
+
+	@media screen and (min-height: 900px) {
+		min-height: 768px;
+	}
+}
+
+@mixin pane-tall() {
+	min-height: 86%;	/* Fallback for browsers do NOT support vh unit */
+	min-height: 86vh;
+
+	@media screen and (min-height: 900px) {
+		min-height: 640px;
+	}
+}
+
+@mixin pane-medium() {
+	min-height: 65%;
+	min-height: 65vh;
+
+	@media screen and (min-height: 900px) {
+		min-height: 480px;
+	}
+}
+
+@mixin pane-short() {
+	min-height: 40%;	/* Fallback for browsers do NOT support vh unit */
+	min-height: 40vh;
+
+	@media screen and (min-height: 900px) {
+		min-height: 320px;
+	}		
+}
