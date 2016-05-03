@@ -12,8 +12,18 @@ block content
 
 	section#work.pane.lightest.huge
 		header
-			h2 work
+			h1 work
+
+		.pieces.container
+			each i in new Array(9)
+				- var height = Math.floor(Math.random() * (350 - 530) + 530)
+				article
+					figure
+						a(href="", title!="2015&#xa;Fashion Trends Moodboard&#xa;Oriflame")
+							//- img(src="http://lorempixel.com/350/"+height+"/animals")
+							img(src="http://loremflickr.com/350/"+height+"/abstract")
+							//- img(src="http://placehold.it/350x"+height)
 
 	section#contact.pane.light.tall
 		header
-			h2 contact me
+			h1 contact me
