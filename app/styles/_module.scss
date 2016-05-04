@@ -2,14 +2,14 @@
     padding-top: $line-height-computed*3;
     padding-bottom: $line-height-computed*3;
     margin-bottom: 0;
+    text-align: center;
 
     > header {
         clear: both;
-
         text-align: center;
 
         @include mq($from: sm) {
-            margin-bottom: $line-height-computed*4;
+            // margin-bottom: $line-height-computed*4;
         }
     }
 
