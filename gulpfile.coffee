@@ -22,6 +22,7 @@ merge = require('merge-stream') 				# merge() command for tasks with multiple so
 cmq = require('gulp-group-css-media-queries') 	# Combines media queries
 autoprefixer = require('gulp-autoprefixer')     # Autoprefixes CSS for compatibility
 cleanCss = require('gulp-clean-css')    # minify CSS
+htmlReplace =  require('gulp-html-replace')   # Replaces stuff on HTML
 
 #
 # C O N F I G
@@ -61,6 +62,20 @@ gulp.task 'clean', ->
 # Task: HTML
 #
 gulp.task 'html', ->
+  # sets base directory according to state
+  config.htmlReplaceSrc = 'http://localhost:9000/'
+  config.htmlReplaceTpl = '<base href="%s">'
+
+  if config.type
+    config.htmlReplaceSrc = 'http://oxcollective.com/'
+
+  config.htmlReplace = {
+    base: {
+      src: config.htmlReplaceSrc,
+      tpl: config.htmlReplaceTpl
+      }
+  }
+
   gulp.src(config.sourceDir + '/**/*.pug')
 
   # Stop gulp from crashing on errors
@@ -75,6 +90,8 @@ gulp.task 'html', ->
     pug: pug
     basedir: config.sourceDir
     pretty: true))
+
+  .pipe(htmlReplace(config.htmlReplace))
 
   .pipe(gulp.dest(config.outputDir))
 
