@@ -67,7 +67,7 @@ gulp.task 'html', ->
   config.htmlReplaceTpl = '<base href="%s">'
 
   if config.type
-    config.htmlReplaceSrc = 'http://oxcollective.com/'
+    config.htmlReplaceSrc = 'http://rajewska.com/'
 
   config.htmlReplace = {
     base: {
