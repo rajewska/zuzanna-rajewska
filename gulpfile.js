@@ -71,7 +71,7 @@ gulp.task('styles', function() {
         outputStyle = 'compressed';
     }
     return gulp.src(config.sourceDir + '/styles/**/*.{scss,sass}').pipe(plumber(config.plumber)).pipe(sourcemaps.init()).pipe(sass({
-        includePaths: ['bower_components/bootstrap-sass/assets/stylesheets', 'bower_components/sass-mq', 'bower_components/monosocialiconsfont'],
+        includePaths: ['node_modules/bootstrap-sass/assets/stylesheets', 'node_modules/sass-mq', 'node_modules/monosocialiconsfont'],
         outputStyle: outputStyle
     })).pipe(cmq()).pipe(gulpIf(config.production, autoprefixer())).pipe(gulpIf(config.production, cleanCss({
         compatibility: 'ie8'
@@ -81,7 +81,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('fonts', function() {
-    return gulp.src(['bower_components/bootstrap-sass/assets/fonts/**/*', 'bower_components/monosocialiconsfont/**/MonoSocialIconsFont-1.10.*']).pipe(plumber(config.plumber)).pipe(gulp.dest(config.outputDir + '/fonts')).pipe(notify({
+    return gulp.src(['node_modules/bootstrap-sass/assets/fonts/**/*', 'node_modules/monosocialiconsfont/**/MonoSocialIconsFont-1.10.*']).pipe(plumber(config.plumber)).pipe(gulp.dest(config.outputDir + '/fonts')).pipe(notify({
         message: 'Fonts task complete'
     }));
 });
@@ -89,7 +89,7 @@ gulp.task('fonts', function() {
 gulp.task('scripts', function() {
     var js, vendor;
     js = gulp.src(config.sourceDir + '/scripts/**/*.js').pipe(plumber(config.plumber)).pipe(gulpIf(config.production, uglify())).pipe(gulp.dest(config.outputDir + '/scripts'));
-    vendor = gulp.src(['bower_components/jquery/dist/jquery.min.*', 'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.*']).pipe(gulp.dest(config.outputDir + '/scripts/vendor'));
+    vendor = gulp.src(['node_modules/jquery/dist/jquery.min.*', 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.*']).pipe(gulp.dest(config.outputDir + '/scripts/vendor'));
     return merge(js, vendor);
 });
 

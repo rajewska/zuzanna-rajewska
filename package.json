@@ -6,11 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Nando Rossi <talk@nan.do>",
   "license": "ISC",
   "devDependencies": {
+    "jquery": "^2.2.3",
+    "monosocialiconsfont": "drinchev/monosocialiconsfont",
+    "sass-mq": "mcaskill/sass-mq",
+    "jquery-smooth-scroll": "^1.7.2",
+    "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.23.6",
-    "coffee-script": "^1.12.7",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -30,5 +34,7 @@
     "gulp-util": "^3.0.8",
     "merge-stream": "^1.0.1",
     "pug": "^2.0.0-rc.4"
-  }
+  },
+  "repository": "https://github.com/rajewska/zuzanna-rajewska.git",
+  "dependencies": {}
 }
